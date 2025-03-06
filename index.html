@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osiria.crochet</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #ff80ab;
+            padding: 20px;
+            color: white;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        nav ul li {
+            display: inline;
+            margin: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+        }
+        #videos {
+            margin-top: 20px;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .gallery img {
+            width: 120px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .contenedor-imagen {
+            display: inline-block;
+            width: 30%;
+            position: relative;
+            margin: 10px;
+        }
+        .contenedor-imagen img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+        .descripcion {
+            background: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8em;
+        }
+        #control-patron {
+            margin-top: 30px;
+        }
+        .pattern-container {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: none;
+            background-color: #ff4081;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #f50057;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Osiria</h1>
+        <p>Este es un proyecto sobre arte en crochet. Encuentra ideas, ramos de flores y decoración a ganchillo.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#ideas">Ideas</a></li>
+                <li><a href="#control-patron">Control de Patrón</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="videos">
+        <h2>Videos de flores a crochet</h2>
+        <a href="https://youtu.be/9CSzVmcAWrc?si=0FjsDeoPgNrOACfu" target="_blank">Lo que tienes que saber antes de crear flores</a>
+        <ul>
+            <li><a href="https://youtu.be/7A6I8wk3srI?si=5ZECQGy8I8x47lgy" target="_blank">Rosas</a></li>
+            <li><a href="https://youtu.be/gaLuyxdHCfM?si=VF_AjL7qT9yIlQ3B" target="_blank">Tulipanes</a></li>
+            <li><a href="https://youtu.be/x6tceenk7tg?si=WEU9aDCWimK0j0Mp" target="_blank">Lirios</a></li>
+            <li><a href="https://youtu.be/kMt6pTJZMpk?si=lpUYZ2XZH761gkf4" target="_blank">Margaritas</a></li>
+        </ul>
+    </section>
+    <section id="ideas">
+        <h2>Ideas</h2>
+        <div class="gallery">
+            <img src="lav.jpg" alt="Flor lavanda">
+            <img src="3tulip.png" alt="Tulipanes">
+            <img src="marg.jpg" alt="Margaritas">
+            <img src="gira.jpg" alt="Girasoles">
+        </div>
+        <h3>Flores</h3>
+        <div class="contenedor-imagen">
+            <img src="https://img.staticdj.com/1f6651cc2d0ef7b9c862f7c5ce1a9808_420x.jpeg" alt="Rosa">
+            <div class="descripcion">Rosa con tallo de alambre y una hoja verde</div>
+        </div>
+        <div class="contenedor-imagen">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeWY-zXeKaLypAyfy9-tfDeEmEwG8igh4Zcg&s" alt="Lavanda">
+            <div class="descripcion">Lavanda con tallo de alambre y hojas verdes</div>
+        </div>
+    </section>
+    <section id="control-patron">
+        <h2>Control de patrón</h2>
+        <h3 id="contador">0</h3>
+        <img id="miImagen" src="https://almaceneslacostura.com/wp-content/uploads/2020/08/patrones-crochet-la-costura-3-e1597812503883.jpg" width="700" alt="Patrón de crochet">
+        <button id="boton">Incrementar</button>
+    </section>
+    <script>
+        let contadorElement = document.getElementById("contador");
+        let boton = document.getElementById("boton");
+        let miImagen = document.getElementById("miImagen");
+        let valorContador = 0;
+        let imagenes = [
+            "https://almaceneslacostura.com/wp-content/uploads/2020/08/patrones-crochet-la-costura-3-e1597812503883.jpg",
+            "patron1.jpg",
+            "patron2.jpg"
+        ];
+        function cambiarImagen() {
+            valorContador++;
+            contadorElement.textContent = valorContador;
+            // Cambia la imag asegurando q el índice no sobrepase la lista
+            let indice = valorContador % imagenes.length;
+            miImagen.src = imagenes[indice];
+        }
+        boton.addEventListener("click", cambiarImagen);
+    </script>
+</body>
+</html>
